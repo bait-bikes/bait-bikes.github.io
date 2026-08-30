@@ -27,6 +27,14 @@ test('shared navigation links to the canonical user login and signup routes', as
 	assert.match(html, /https:\/\/user\.baitbikes\.org\/signup/);
 });
 
+test('every route declares baitbikes.org as its canonical public origin', async () => {
+	for (const route of routes) {
+		const html = await readFile(new URL(`../dist/${route}`, import.meta.url), 'utf8');
+		assert.match(html, /<link rel="canonical" href="https:\/\/baitbikes\.org\//, route);
+		assert.doesNotMatch(html, /rel="canonical" href="https:\/\/bait-bikes\.github\.io/, route);
+	}
+});
+
 test('petition page discloses the carbon copy and attached-PDF delivery behavior', async () => {
 	const html = await readFile(new URL('../dist/petitions/index.html', import.meta.url), 'utf8');
 	assert.match(html, /carbon-copied to you/i);
