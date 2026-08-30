@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+	kicker?: string;
+}
+
+const { title, description, kicker = 'Bait Bikes' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const socialImage = new URL('/og.png', Astro.site ?? Astro.url.origin);
+const currentPath = Astro.url.pathname;
+const nav = [
+	{ href: '/why-bikes/', label: 'Why bikes' },
+	{ href: '/operations/', label: 'Operations' },
+	{ href: '/technology/', label: 'Technology' },
+	{ href: '/theft-intelligence/', label: 'Intelligence' },
+	{ href: '/partners/', label: 'Partners' },
+	{ href: '/petitions/', label: 'Petitions' },
+	{ href: '/resources/', label: 'Resources' },
+];
+const isActive = (href: string) => currentPath.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0b1817" />
+		<link rel="canonical" href={canonical} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Bait Bikes" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={socialImage} />
+		<meta property="og:image:width" content="1672" />
+		<meta property="og:image:height" content="941" />
+		<meta property="og:image:alt" content="Bait Bikes — Break the cycle of bike theft. Two bicycles connect bike shops, public institutions, investigators, and manufacturers." />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImage} />
+		<meta name="twitter:image:alt" content="Bait Bikes — Break the cycle of bike theft." />
+		<title>{title}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="Bait Bikes home">
+				<span class="brand-mark" aria-hidden="true"><span>BB</span></span>
+				<span><strong>Bait Bikes</strong><small>Mobility is worth protecting.</small></span>
+			</a>
+			<nav class="desktop-nav" aria-label="Primary navigation">
+				{nav.map((item) => <a class:list={[{ active: isActive(item.href) }]} href={item.href}>{item.label}</a>)}
+			</nav>
+			<a class="header-cta" href="/partners/#start">Build a partnership</a>
+			<details class="mobile-menu">
+				<summary>Menu</summary>
+				<nav aria-label="Mobile navigation">
+					{nav.map((item) => <a href={item.href}>{item.label}</a>)}
+					<a href="/partners/#start">Build a partnership</a>
+				</nav>
+			</details>
+		</header>
+
+		<div class="context-bar" aria-label="Site purpose">
+			<span>{kicker}</span>
+			<p>Education for agencies, bike institutions, manufacturers, and the people who ride.</p>
+		</div>
+
+		<main id="main-content">
+			<slot />
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-lead">
+				<span class="brand-mark" aria-hidden="true"><span>BB</span></span>
+				<div>
+					<p class="eyebrow">A bicycle-first public-safety initiative</p>
+					<h2>Better protection begins with better coordination.</h2>
+				</div>
+			</div>
+			<div class="footer-grid">
+				<div>
+					<strong>Explore</strong>
+					<a href="/operations/">Operation design</a>
+					<a href="/technology/">Technology</a>
+					<a href="/theft-intelligence/">Theft intelligence</a>
+				</div>
+				<div>
+					<strong>Participate</strong>
+					<a href="/partners/#agency-onboarding">Agency access</a>
+					<a href="/technology/#owner-app">Owner access</a>
+					<a href="/petitions/">Petition toolkit</a>
+					<a href="/partners/#manufacturers">Manufacturer program</a>
+				</div>
+				<div>
+					<strong>Project</strong>
+					<a href="https://github.com/bait-bikes">GitHub organization</a>
+					<a href="/resources/">Source library</a>
+					<a href="/contact/">Contact</a>
+				</div>
+			</div>
+			<div class="footer-meta">
+				<p>Operational material is educational, not legal advice. Agencies must use their own counsel, policy, training, and supervisory review.</p>
+				<p>&copy; {new Date().getFullYear()} Bait Bikes</p>
+			</div>
+		</footer>
+	</body>
+</html>

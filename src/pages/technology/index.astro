@@ -1,0 +1,78 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+	title="Bicycle Tracking Technology | Bait Bikes"
+	description="A manufacturer and owner reference architecture for secure, privacy-preserving bicycle and e-bike tracking, mobile pairing, and recovery."
+	kicker="Technology"
+>
+	<header class="page-hero shell">
+		<p class="eyebrow">Built in · Owner controlled · Recovery ready</p>
+		<h1>Design the bicycle to be findable.</h1>
+		<p class="lede">Manufacturers can make theft recovery a product capability instead of an accessory. The right architecture combines durable identity, low-power finding, deliberate mobile ownership, secure firmware, and tightly scoped sharing.</p>
+		<nav class="page-nav" aria-label="On this page"><a href="#architecture">Architecture</a><a href="#manufacturers">Manufacturers</a><a href="#owner-app">Owner app</a><a href="#ebikes">E-bikes</a><a href="#privacy">Privacy and security</a></nav>
+	</header>
+
+	<section class="section" id="architecture">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Reference architecture</p><h2>Multiple signals, one trustworthy ownership state.</h2></div><p>No radio solves every recovery condition. Combine complementary capabilities, and make the ownership and sharing state explicit enough that a shop, manufacturer, owner, and agency can understand who is authorized to do what.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">LAYER 01</span><h3>Durable identity</h3><p>Frame and component identifiers, a secure hardware key, signed manufacturing record, visible serial, and a transfer history that does not expose prior owner location.</p></article>
+				<article class="card"><span class="number">LAYER 02</span><h3>Finding signals</h3><p>Low-power BLE for crowdsourced finding, optional UWB for close-range precision, and GNSS plus cellular for independently connected e-bikes or high-value fleets.</p></article>
+				<article class="card"><span class="number">LAYER 03</span><h3>Events and sensing</h3><p>Motion, tilt, wheel rotation, battery disconnect, enclosure tamper, lock state, and controller events—filtered locally to reduce false alerts and data collection.</p></article>
+				<article class="card"><span class="number">LAYER 04</span><h3>Owner application</h3><p>Secure claim, everyday status, stolen mode, recovery sharing, trusted contacts, shop-service delegation, privacy controls, and ownership transfer.</p></article>
+				<article class="card"><span class="number">LAYER 05</span><h3>Recovery exchange</h3><p>A bounded evidence packet with bicycle identity, owner authorization, event provenance, time confidence, limited location history, and revocable agency access.</p></article>
+				<article class="card"><span class="number">LAYER 06</span><h3>Lifecycle support</h3><p>Signed updates, vulnerability disclosure, battery service, tracker health, credential rotation, secure reset, end-of-support notice, and documented data deletion.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section light" id="manufacturers">
+		<div class="shell split">
+			<div class="prose">
+				<p class="eyebrow">For bicycle and component manufacturers</p>
+				<h2>Make tracking part of product engineering.</h2>
+				<p>Reserve antenna space and a protected module location early. Give the tracker its own low-energy reserve where practical. Bind its cryptographic identity at manufacturing. Ensure a thief cannot defeat every signal by removing one obvious battery or display.</p>
+				<p>Support owner choice. A buyer should be able to activate or decline the service, understand ongoing connectivity costs, export proof of ownership, transfer the bicycle, delete personal data, and receive security updates for a clearly stated period.</p>
+				<ul class="tag-list"><li>Frame integration</li><li>Secure element</li><li>eSIM option</li><li>Antenna diversity</li><li>Backup energy</li><li>Signed firmware</li><li>Repair mode</li><li>Secure transfer</li></ul>
+			</div>
+			<aside class="aside-panel"><p class="eyebrow">Build or integrate</p><h3>Finding-network options</h3><p>Manufacturers can evaluate established finding networks alongside their own connected service. Apple provides a Find My network accessory program through MFi; Google documents a BLE-based Find Hub Network accessory specification with unwanted-tracking protections.</p><p><a href="https://developer.apple.com/find-my/">Apple Find My developer program</a><br /><a href="https://developers.google.com/nearby/fast-pair/specifications/extensions/fmdn">Google Find Hub accessory specification</a></p></aside>
+		</div>
+	</section>
+
+	<section class="section" id="owner-app">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">The owner application</p><h2>Calm in daily use. Clear in a crisis.</h2></div><p>The mobile app should not behave like a constant surveillance dashboard. It should confirm protection, surface meaningful anomalies, and guide the owner through safe reporting and recovery when a theft occurs.</p></div>
+			<div class="steps">
+				<article class="step"><div><h3>Claim</h3><p>Scan a product credential or complete a dealer handoff; bind the device to the owner account with strong recovery and anti-takeover controls.</p></div></article>
+				<article class="step"><div><h3>Protect</h3><p>Show tracker health, battery, last private check-in, lock state, firmware status, and optional trusted-place behavior without collecting a permanent travel diary.</p></div></article>
+				<article class="step"><div><h3>Report</h3><p>Guide the owner to confirm theft, preserve receipts and serials, contact the appropriate agency, create a report reference, and avoid personal confrontation.</p></div></article>
+				<article class="step"><div><h3>Share</h3><p>Issue a time-limited, revocable recovery grant containing only the identity, status, events, and location window needed for the case.</p></div></article>
+				<article class="step"><div><h3>Recover</h3><p>Record condition and custody, end stolen mode, rotate credentials, inspect tampering, and close access granted to shops, insurers, or agencies.</p></div></article>
+				<article class="step"><div><h3>Transfer</h3><p>Prove possession, wipe personal links, rotate keys, retain only non-personal product service history, and let the next owner establish a fresh identity.</p></div></article>
+			</div>
+	</div>
+	</section>
+
+	<section class="section" id="ebikes">
+		<div class="shell callout">
+			<p class="eyebrow">Especially for e-bikes</p>
+			<h2>The electrical system can become a protection system.</h2>
+			<p>An e-bike already has energy, a controller, sensors, and often a display or mobile relationship. Those components can support tracker-health checks, signed component pairing, battery-removal alerts, authenticated diagnostics, and an independent low-power beacon. Design the protection path so it survives main-battery removal—and never create a feature that brakes, locks, or destabilizes a moving rider.</p>
+			<ul class="tag-list"><li>Controller attestation</li><li>Battery identity</li><li>Motor component pairing</li><li>Low-power reserve</li><li>Service-tool authorization</li><li>Tamper-aware diagnostics</li></ul>
+		</div>
+	</section>
+
+	<section class="section light" id="privacy">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Privacy and security by design</p><h2>Protect the owner from the protection system.</h2></div><p>Location is sensitive. A trustworthy product minimizes it, encrypts it, limits its audience, detects unwanted tracking, and gives the owner meaningful control. Security and privacy must last for the supported life of the bicycle—not only through launch day.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">MINIMIZE</span><h3>Collect less</h3><p>Prefer event-triggered and coarse data in normal mode. Keep precise history short. Process motion locally. Do not build a resale business around rider travel.</p></article>
+				<article class="card"><span class="number">CONTROL</span><h3>Make access explicit</h3><p>Use strong authentication, per-device keys, revocable grants, audit history, secure ownership transfer, and visible indicators when location is being shared.</p></article>
+				<article class="card"><span class="number">DEFEND</span><h3>Support the lifecycle</h3><p>Ship signed updates, publish a vulnerability process, rotate compromised keys, prevent rollback, document cloud dependencies, and plan for service shutdown.</p></article>
+			</div>
+			<p class="source-note">Manufacturer baseline resources: <a href="https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/nistir-8259-series">NISTIR 8259 IoT manufacturer guidance</a> and <a href="https://www.nist.gov/publications/considerations-managing-internet-things-iot-cybersecurity-and-privacy-risks">NISTIR 8228 IoT cybersecurity and privacy risk guidance</a>.</p>
+		</div>
+	</section>
+</SiteLayout>

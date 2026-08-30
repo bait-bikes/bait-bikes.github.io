@@ -1,0 +1,114 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const organizationPortalUrl = import.meta.env.PUBLIC_ORG_PORTAL_URL ?? '/partners/#agency-onboarding';
+const ownerPortalUrl = import.meta.env.PUBLIC_OWNER_PORTAL_URL ?? '/technology/#owner-app';
+---
+
+<SiteLayout
+	title="Bait Bikes | Break the cycle of bike theft"
+	description="Bait Bikes helps law enforcement, bike institutions, manufacturers, and communities prevent bicycle theft, recover mobility, and build evidence-led partnerships."
+>
+	<section class="hero shell">
+		<p class="eyebrow">Public safety · Everyday mobility · Coordinated evidence</p>
+		<h1>Break the cycle of bike theft.</h1>
+		<p class="lede">Bicycle theft is not a minor inconvenience. Depending on value and local law, it can be felony-level property crime. It can also be one event in a larger, organized resale network that moves expensive bikes across jurisdictions. Bait Bikes helps communities respond with coordination, evidence, and care.</p>
+		<div class="actions">
+			<a class="button primary" href="/operations/">Plan a responsible operation</a>
+			<a class="button secondary" href="/technology/">Build trackable bikes</a>
+			<a class="button secondary" href={ownerPortalUrl}>For bicycle owners</a>
+		</div>
+		<p class="hero-note">Bait Bikes supports lawful, supervised, policy-led operations. It does not endorse vigilantism, indiscriminate tracking, or unsafe remote intervention.</p>
+	</section>
+
+	<section class="section light">
+		<div class="shell">
+			<div class="section-heading">
+				<div><p class="eyebrow">Why this matters</p><h2>A stolen bicycle can steal someone’s day—and much more.</h2></div>
+				<p>Bicycles and e-bikes are transportation, livelihood, access, recreation, and public-service equipment. A theft can break a commute, a care schedule, a delivery route, or a family budget.</p>
+			</div>
+			<div class="card-grid">
+				<article class="card"><span class="number">01 / MOBILITY</span><h3>People rely on bikes</h3><p>Nurses, doctors, students, tradespeople, service workers, parents, and first responders use bicycles to move through their communities.</p></article>
+				<article class="card"><span class="number">02 / VALUE</span><h3>Bikes can cost thousands</h3><p>Performance bicycles, adaptive cycles, cargo bikes, and e-bikes can exceed local felony-theft thresholds. The applicable charge always depends on jurisdiction and facts.</p></article>
+				<article class="card"><span class="number">03 / NETWORKS</span><h3>The market can cross borders</h3><p>Federal cases document stolen high-end bicycles transported across state and national borders for resale. Local reports can be fragments of a wider pattern.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell">
+			<div class="section-heading">
+				<div><p class="eyebrow">What bait operations can do</p><h2>Turn one activation into usable intelligence.</h2></div>
+				<p>A well-designed bait-bike operation can do more than produce a single arrest. It can reveal movement, handling, repeat-offender behavior, fencing locations, and relationships that ordinary loss reports may not expose.</p>
+			</div>
+			<div class="steps">
+				<article class="step"><div><h3>Start from a measured problem</h3><p>Use reported thefts, recovery data, temporal patterns, bike-shop intelligence, and community input to define the problem before selecting a tactic.</p></div></article>
+				<article class="step"><div><h3>Deploy under policy and supervision</h3><p>Document ownership, condition, tracker authorization, placement criteria, dispatch thresholds, evidence handling, and the circumstances for officer contact.</p></div></article>
+				<article class="step"><div><h3>Follow the signal safely</h3><p>Use the tracker as one investigative input. Confirm the facts, avoid unsafe pursuit, and preserve the distinction between a movement alert and probable cause.</p></div></article>
+				<article class="step"><div><h3>Learn beyond the arrest</h3><p>Analyze routes, destinations, repeat contacts, resale channels, recovery outcomes, false alerts, equity impact, and displacement to improve the next intervention.</p></div></article>
+			</div>
+			<div class="actions"><a class="button primary" href="/operations/">Read the operation playbook</a><a class="button secondary" href="/theft-intelligence/">Understand theft networks</a></div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell">
+			<div class="section-heading">
+				<div><p class="eyebrow">Documented scale</p><h2>High-value theft is a real cross-jurisdiction problem.</h2></div>
+				<p>These public cases illustrate the stakes; they are not estimates of all bicycle theft and do not imply that every local theft belongs to an organized ring.</p>
+			</div>
+			<div class="stat-band">
+				<div><strong>$3k–$9k</strong><span>Values alleged for individual high-end bikes in a 2024 federal international-fencing case.</span></div>
+				<div><strong>$40k+</strong><span>Total loss in a federal interstate scheme involving bicycles taken from rental shops in multiple states.</span></div>
+				<div><strong>1 repeat</strong><span>Repeat offender identified among two arrests in a joint BART bait-bike operation that also recovered another stolen bike.</span></div>
+			</div>
+			<p class="source-note">Sources: <a href="https://www.justice.gov/usao-ndca/pr/san-jose-man-charged-alleged-conspiracy-steal-high-end-bicycles-bay-area-resale-mexico">U.S. Attorney, Northern District of California</a>; <a href="https://www.justice.gov/usao-id/pr/florida-man-sentenced-interstate-transportation-stolen-bicycles-taken-multiple-bike">U.S. Attorney, District of Idaho</a>; <a href="https://www.bart.gov/news/articles/2014/news20140502">BART</a>.</p>
+		</div>
+	</section>
+
+	<section class="section light">
+		<div class="shell">
+			<div class="section-heading">
+				<div><p class="eyebrow">A familiar idea, a different vehicle</p><h2>Bait cars, bait motorcycles, and bait bikes share a playbook—not a risk profile.</h2></div>
+				<p>All three can combine controlled property, location technology, communications, and a planned response. A bicycle’s size, power budget, movement patterns, and ease of disassembly demand a bicycle-specific design.</p>
+			</div>
+			<table class="comparison">
+				<thead><tr><th>Operational question</th><th>Bait car</th><th>Bait motorcycle</th><th>Bait bicycle / e-bike</th></tr></thead>
+				<tbody>
+					<tr><td>Activation</td><td>Entry, ignition, or movement</td><td>Ignition, tilt, or movement</td><td>Lock state, motion, geofence, or component removal</td></tr>
+					<tr><td>Evidence surface</td><td>Cabin video, controls, route</td><td>Vehicle telemetry and route</td><td>Tracker history, lock telemetry, route, handling, and recovery condition</td></tr>
+					<tr><td>Distinct risk</td><td>Vehicle pursuit and public-road speed</td><td>High rider vulnerability and pursuit risk</td><td>Easy carrying/disassembly, dense pedestrian routes, limited battery, ownership/privacy ambiguity</td></tr>
+					<tr><td>Safe design principle</td><td>Controlled response; remote features only under policy</td><td>No intervention that destabilizes a moving rider</td><td>Never remotely disable or lock a moving bicycle; treat alerts as investigative leads</td></tr>
+				</tbody>
+			</table>
+			<p class="source-note">The U.S. Office of Justice Programs describes tracking, communications, control, mapping, and evidence considerations for bait vehicles. Bicycle operations must adapt those principles to local law and the physical realities of bikes.</p>
+		</div>
+	</section>
+
+	<section class="section" id="technology">
+		<div class="shell split">
+			<div class="prose">
+				<p class="eyebrow">Technology that begins at the factory</p>
+				<h2>Make ownership and recovery part of the bicycle—not an afterthought.</h2>
+				<p>Manufacturers can design hidden, tamper-aware tracking modules into frames, motors, batteries, and controllers. A secure mobile handoff can bind the bicycle to its owner, rotate credentials, provide a privacy-preserving last-known location, and enable a deliberate stolen mode.</p>
+				<ul class="tag-list"><li>BLE finding networks</li><li>GNSS + cellular</li><li>UWB precision finding</li><li>Secure element</li><li>Motion + tamper sensing</li><li>Battery-aware beacons</li><li>Owner-controlled sharing</li><li>Signed recovery exports</li></ul>
+				<div class="actions"><a class="button primary" href="/technology/">Explore the reference architecture</a><a class="button secondary" href="/partners/#manufacturers">Join as a manufacturer</a></div>
+			</div>
+			<aside class="aside-panel">
+				<p class="eyebrow">Owner experience</p>
+				<h3>One bicycle. One clear chain of custody.</h3>
+				<ul><li>Claim at purchase with a verifiable handoff</li><li>Share temporary access with family or a shop</li><li>Mark stolen without making location public</li><li>Send a bounded recovery packet to an agency</li><li>Transfer ownership without exposing history</li></ul>
+				<a class="button secondary" href={ownerPortalUrl}>Owner access</a>
+			</aside>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell callout">
+			<p class="eyebrow">Bicycle chauvinists, public-interest realists</p>
+			<p class="quote">Yes, we think bicycles are extraordinary. We also know that protecting a bicycle protects the person, route, job, appointment, and community connected to it.</p>
+			<cite>That is why Bait Bikes is built for everyone who rides—and everyone responsible for keeping public space safe.</cite>
+			<div class="actions"><a class="button primary" href={organizationPortalUrl}>Agency and institution access</a><a class="button secondary" href="/why-bikes/">Why bikes deserve better</a></div>
+		</div>
+	</section>
+</SiteLayout>

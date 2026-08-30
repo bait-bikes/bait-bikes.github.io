@@ -1,0 +1,60 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+	title="Bicycle Theft Intelligence | Bait Bikes"
+	description="Learn how bicycles and e-bikes are stolen, moved, dismantled, and resold—and how institutions can share evidence responsibly."
+	kicker="Theft intelligence"
+>
+	<header class="page-hero shell">
+		<p class="eyebrow">See the system, not only the missing bicycle</p>
+		<h1>Bike theft has methods, markets, and routes.</h1>
+		<p class="lede">A bicycle may be taken in seconds, but the full event can involve target selection, lock defeat, transport, component stripping, identity removal, online listing, fencing, and movement across jurisdictions.</p>
+		<nav class="page-nav" aria-label="On this page"><a href="#methods">Methods</a><a href="#markets">Markets</a><a href="#signals">Signals</a><a href="#sharing">Information sharing</a></nav>
+	</header>
+
+	<section class="section" id="methods">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Common theft methods</p><h2>Design prevention around how locks and bikes actually fail.</h2></div><p>The U.S. Department of Justice bicycle-theft guide describes lifting, levering, striking, unbolting, cutting, and lock picking. E-bikes add batteries, displays, motors, and high-value components that can be targeted separately.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">ATTACHMENT</span><h3>Weak anchor or incomplete lock</h3><p>Loose posts, removable signs, locking only a wheel, and large gaps can let a thief lift, unbolt, or lever around the lock rather than defeat it directly.</p></article>
+				<article class="card"><span class="number">TOOL ATTACK</span><h3>Cut, strike, lever, pick</h3><p>Attack time and noise depend on the lock, placement, tool access, ground leverage, visibility, and whether people nearby recognize what they are seeing.</p></article>
+				<article class="card"><span class="number">COMPONENTS</span><h3>Remove value in pieces</h3><p>Quick-release wheels, batteries, displays, saddles, motors, and premium components can be separated, resold, or used to make the frame harder to identify.</p></article>
+			</div>
+			<p class="source-note">Source: <a href="https://portal.cops.usdoj.gov/resourcecenter/content.ashx/cops-p141-pub.pdf">COPS Office, Bicycle Theft problem-oriented policing guide</a>.</p>
+		</div>
+	</section>
+
+	<section class="section light" id="markets">
+		<div class="shell split">
+			<div class="prose">
+				<p class="eyebrow">From opportunistic theft to organized fencing</p>
+				<h2>Do not assume every case is a ring. Do not assume every case is isolated.</h2>
+				<p>Some thefts are opportunistic and local. Others use repeated techniques, vehicles, storage sites, online accounts, repair knowledge, or resale channels. A high-value bicycle can be dismantled or transported before separate agencies recognize a pattern.</p>
+				<p>Federal cases show real interstate and international schemes involving high-end bikes. One 2024 indictment alleged bicycles taken during Bay Area burglaries were disassembled, packaged, and transported to Mexico for resale. A separate federal conviction involved high-end rental bicycles taken in multiple states and transported for sale at pawn shops.</p>
+			</div>
+			<aside class="aside-panel"><p class="eyebrow">Network indicators</p><ul><li>Repeated tool marks or entry methods</li><li>Clusters around events, campuses, transit, or storage</li><li>Rapid movement beyond the theft jurisdiction</li><li>Component-level resale and identity removal</li><li>Listings using reused imagery, accounts, or contact patterns</li><li>Recovered bikes linked to other stolen property</li><li>Storage, packaging, vehicle, or shipping evidence</li></ul></aside>
+		</div>
+	</section>
+
+	<section class="section" id="signals">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Useful signals</p><h2>Build a picture that can cross systems.</h2></div><p>A serial number remains important, but a resilient record can connect frame identity, components, ownership, incident facts, tracker events, images, and recovery condition without making a person’s daily location broadly visible.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">BIKE</span><h3>Identity and configuration</h3><p>Serial, make, model, color, size, frame marks, motor, battery, component IDs, modifications, photographs, purchase and service records.</p></article>
+				<article class="card"><span class="number">INCIDENT</span><h3>Time, place, and method</h3><p>Best-known window, precise location, lock and anchor, point of failure, tool traces, nearby cameras, witnesses, associated property, and report number.</p></article>
+				<article class="card"><span class="number">MOVEMENT</span><h3>Events with confidence</h3><p>Tracker source, time confidence, accuracy, motion, route, gaps, battery state, alert configuration, access history, and independent corroboration.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="sharing">
+		<div class="shell callout">
+			<p class="eyebrow">Responsible information sharing</p>
+			<h2>Share the case—not someone’s life.</h2>
+			<p>Use purpose-limited exchanges with role-based access, explicit case references, narrow time and geographic windows, redaction, access logs, retention deadlines, and revocation. Separate general pattern data from personally identifying owner and suspect records. Never put live tracker links or unredacted owner location into public alerts.</p>
+			<div class="actions"><a class="button primary" href="/partners/">Build a regional partnership</a><a class="button secondary" href="/technology/#privacy">Read the privacy architecture</a></div>
+		</div>
+	</section>
+</SiteLayout>

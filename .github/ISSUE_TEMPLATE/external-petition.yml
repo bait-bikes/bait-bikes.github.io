@@ -1,0 +1,54 @@
+name: Suggest an external petition
+description: Propose a relevant public petition for review and possible listing.
+title: "External petition: "
+labels: [external-petition, needs-review]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggestions are public. Do not post home addresses, personal phone numbers, live bicycle locations, sensitive case details, or names of suspected offenders. A link is not an endorsement by Bait Bikes.
+  - type: input
+    id: url
+    attributes:
+      label: Canonical petition URL
+      description: Link directly to the petition on its hosting platform.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: organizer
+    attributes:
+      label: Organizer
+      description: Publicly identified person or organization responsible for the petition.
+    validations:
+      required: true
+  - type: input
+    id: government-target
+    attributes:
+      label: Government target
+      description: City, county, transit agency, campus, state office, or other public body receiving the petition.
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Concrete request
+      description: Summarize the lawful bicycle-mobility or theft-prevention action being requested.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting public sources
+      description: Provide official or otherwise credible sources for factual claims. Do not identify suspected offenders.
+    validations:
+      required: true
+  - type: checkboxes
+    id: standards
+    attributes:
+      label: Safety and transparency
+      options:
+        - label: The petition does not encourage threats, harassment, discrimination, doxxing, confrontation, vigilantism, or public live-location sharing.
+          required: true
+        - label: I understand that review or listing does not constitute endorsement, verification of signatures, or custody of petition data by Bait Bikes.
+          required: true

@@ -1,0 +1,187 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+	title="Petition Toolkit for Bicycle Safety | Bait Bikes"
+	description="Draft a bicycle-theft prevention petition for local government, take it directly to public officials, or find transparent third-party petition platforms."
+	kicker="Civic action"
+>
+	<header class="page-hero shell">
+		<p class="eyebrow">Turn concern into a concrete public request</p>
+		<h1>Ask your government to protect bicycle mobility.</h1>
+		<p class="lede">Use this browser-only composer to prepare a focused petition for a city, county, transit agency, campus, or state office. Bait Bikes does not receive, store, endorse, or count your submission.</p>
+		<nav class="page-nav" aria-label="Petition page sections">
+			<a href="#compose">Compose a petition</a>
+			<a href="#deliver">Deliver it responsibly</a>
+			<a href="#external">External petitions</a>
+			<a href="#standards">Listing standards</a>
+		</nav>
+	</header>
+
+	<section class="section light" id="compose">
+		<div class="shell split petition-layout">
+			<div>
+				<p class="eyebrow">Petition composer</p>
+				<h2>Make a specific, measurable ask.</h2>
+				<p class="form-intro">Fields stay on this device. “Prepare email” opens your own mail application; “Download” creates a local text file. Nothing is submitted to Bait Bikes.</p>
+				<form class="petition-form" data-petition-form>
+					<div class="field-row">
+						<label>Government or agency <input name="jurisdiction" required maxlength="120" placeholder="City of Example or Example Transit Authority" /></label>
+						<label>Official or office <input name="official" required maxlength="120" placeholder="Mayor, city council, transportation committee…" /></label>
+					</div>
+					<label>Official public email <input name="email" type="email" inputmode="email" maxlength="160" placeholder="Use an address published on an official .gov site" aria-describedby="email-help" /></label>
+					<small id="email-help">Verify the recipient on the government’s official website. An email is needed only for the email action.</small>
+					<label>Petition title <input name="title" required maxlength="140" value="Protect bicycle owners with a coordinated theft-prevention and recovery program" /></label>
+					<label>What should this government do? <textarea name="ask" required maxlength="1200" rows="6" placeholder="Example: fund secure parking and registration; publish a bicycle-theft problem analysis; and evaluate a supervised, policy-approved bait-bike pilot with privacy, evidence, and safety controls."></textarea></label>
+					<label>Why does this matter locally? <textarea name="reason" required maxlength="1600" rows="7" placeholder="Describe commuting, access to work and care, recent local data, high-value bicycles and e-bikes, repeat theft, or coordination gaps. Link to sources where possible."></textarea></label>
+					<div class="field-row">
+						<label>Your name or organization <input name="author" maxlength="120" placeholder="Optional in the draft" /></label>
+						<label>Your city or district <input name="location" maxlength="120" placeholder="Optional in the draft" /></label>
+					</div>
+					<label class="check-field"><input name="guardrails" type="checkbox" required /> <span>I am asking for lawful, nonviolent public action—not confrontation, vigilantism, public live tracking, or remote disabling of a moving bicycle.</span></label>
+					<div class="actions">
+						<button class="button primary" type="submit">Build petition draft</button>
+						<button class="button form-button" type="reset">Clear</button>
+					</div>
+				</form>
+			</div>
+
+			<aside class="petition-preview" aria-live="polite">
+				<p class="eyebrow">Your draft</p>
+				<textarea data-petition-output aria-label="Generated petition draft" rows="22" readonly>Complete the form to create a petition draft.</textarea>
+				<p class="form-message" data-form-message role="status"></p>
+				<div class="actions compact-actions">
+					<button class="button secondary" type="button" data-copy disabled>Copy</button>
+					<button class="button secondary" type="button" data-download disabled>Download .txt</button>
+					<a class="button secondary disabled-action" data-email aria-disabled="true">Prepare email</a>
+					<button class="button secondary" type="button" data-print disabled>Print</button>
+				</div>
+			</aside>
+		</div>
+	</section>
+
+	<section class="section" id="deliver">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Responsible delivery</p><h2>Petitions work best as part of public process.</h2></div><p>A petition is an opening—not a substitute for listening, local evidence, public meetings, accessible participation, budgeting, policy review, or program evaluation.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">01 · Verify</span><h3>Use official channels.</h3><p>Confirm the correct office and its published email, petition portal, council agenda process, or public-comment rules on an official government website.</p></article>
+				<article class="card"><span class="number">02 · Document</span><h3>Support the local problem statement.</h3><p>Use public records, reported theft data, rider and shop experience, parking conditions, and sourced cases. Separate allegations from convictions and local facts from broader examples.</p></article>
+				<article class="card"><span class="number">03 · Measure</span><h3>Ask for safeguards and evaluation.</h3><p>Request prevention and recovery together, with legal review, privacy limits, supervisory authorization, evidence handling, equity review, public reporting, and a stop condition.</p></article>
+			</div>
+			<div class="callout petition-callout">
+				<h3>A balanced starter ask</h3>
+				<p>Consider secure parking, registration and owner education, shop and campus coordination, theft-market analysis, recovery training, manufacturer engagement, and only then a bounded bait-bike pilot if local analysis supports it. No one should follow or confront a suspected thief.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section light" id="external">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Third-party options</p><h2>Host or discover petitions elsewhere.</h2></div><p>These independent platforms have their own terms, moderation, privacy, accessibility, data, and fundraising practices. A link is not an endorsement by Bait Bikes; review the platform and each petition before participating.</p></div>
+			<div class="resource-list">
+				<a class="resource" href="https://www.change.org/"><span>Independent platform</span><p><strong>Change.org.</strong> Create, discover, and share public petitions hosted outside Bait Bikes.</p><b>Visit ↗</b></a>
+				<a class="resource" href="https://www.actionnetwork.org/petitions"><span>Independent platform</span><p><strong>Action Network.</strong> Petition tools used by organizations and advocacy campaigns.</p><b>Visit ↗</b></a>
+				<a class="resource" href="https://www.moveon.org/petitions/"><span>Independent platform</span><p><strong>MoveOn Petitions.</strong> A third-party petition creation and discovery service.</p><b>Visit ↗</b></a>
+				<a class="resource" href="https://www.usa.gov/elected-officials"><span>U.S. government directory</span><p><strong>Find and contact elected officials.</strong> Use an official directory to identify federal, state, and local representatives, then verify the receiving office’s rules.</p><b>Visit ↗</b></a>
+			</div>
+			<div class="actions">
+				<a class="button primary" href="https://github.com/bait-bikes/bait-bikes.github.io/issues/new?template=external-petition.yml">Suggest an external petition link</a>
+			</div>
+			<p class="source-note">Suggestions are public GitHub issues and require a GitHub account. Do not include private addresses, phone numbers, live bicycle locations, case-sensitive information, or names of suspected offenders.</p>
+		</div>
+	</section>
+
+	<section class="section" id="standards">
+		<div class="shell split">
+			<div class="prose">
+				<p class="eyebrow">Public directory standards</p>
+				<h2>Relevant, attributable, safe, and current.</h2>
+				<p>A suggested external petition may be listed only after review. It should have a clearly identified organizer and government target, a bicycle-mobility or theft-prevention purpose, a concrete lawful request, and a working canonical URL.</p>
+				<p>Links may be rejected or removed for harassment, discrimination, threats, doxxing, unverified accusations against identifiable people, instructions for confrontation or covert surveillance, fundraising ambiguity, expired campaigns, or materially misleading claims.</p>
+			</div>
+			<aside class="aside-panel"><h3>No endorsement or signature custody</h3><p>Bait Bikes does not operate the linked platforms, verify signer counts, hold signature data, or promise delivery. Organizers and participants are responsible for reviewing local petition rules and each platform’s policies.</p></aside>
+		</div>
+	</section>
+
+	<script>
+		const form = document.querySelector<HTMLFormElement>('[data-petition-form]');
+		const output = document.querySelector<HTMLTextAreaElement>('[data-petition-output]');
+		const message = document.querySelector<HTMLElement>('[data-form-message]');
+		const copyButton = document.querySelector<HTMLButtonElement>('[data-copy]');
+		const downloadButton = document.querySelector<HTMLButtonElement>('[data-download]');
+		const printButton = document.querySelector<HTMLButtonElement>('[data-print]');
+		const emailLink = document.querySelector<HTMLAnchorElement>('[data-email]');
+
+		let currentDraft = '';
+		const field = (data: FormData, name: string) => String(data.get(name) ?? '').trim();
+		const setMessage = (text: string) => { if (message) message.textContent = text; };
+		const setReady = (ready: boolean) => {
+			if (copyButton) copyButton.disabled = !ready;
+			if (downloadButton) downloadButton.disabled = !ready;
+			if (printButton) printButton.disabled = !ready;
+		};
+
+		form?.addEventListener('submit', (event) => {
+			event.preventDefault();
+			if (!form.reportValidity()) return;
+			const data = new FormData(form);
+			const jurisdiction = field(data, 'jurisdiction');
+			const official = field(data, 'official');
+			const title = field(data, 'title');
+			const ask = field(data, 'ask');
+			const reason = field(data, 'reason');
+			const author = field(data, 'author');
+			const location = field(data, 'location');
+			const signature = [author, location].filter(Boolean).join(' — ');
+			currentDraft = `${title}\n\nTo: ${official}, ${jurisdiction}\n\nWe, the undersigned and concerned members of the community, respectfully ask:\n\n${ask}\n\nWhy action is needed:\n\n${reason}\n\nWe ask ${jurisdiction} to use lawful public process, local problem analysis, legal and privacy review, trained supervision, community input, transparent safeguards, and measurable evaluation. This request does not support confrontation, vigilantism, public live-location sharing, or remote disabling of a moving bicycle.\n\n${signature ? `Submitted by: ${signature}\n\n` : ''}Please acknowledge this petition and identify the public process, office, and timeline for considering the request.`;
+			if (output) output.value = currentDraft;
+			setReady(true);
+			const email = field(data, 'email');
+			if (emailLink && email) {
+				emailLink.href = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(currentDraft)}`;
+				emailLink.removeAttribute('aria-disabled');
+				emailLink.classList.remove('disabled-action');
+			} else if (emailLink) {
+				emailLink.removeAttribute('href');
+				emailLink.setAttribute('aria-disabled', 'true');
+				emailLink.classList.add('disabled-action');
+			}
+			setMessage(email ? 'Draft ready. Verify the official address before opening your email app.' : 'Draft ready. Add a verified official email to enable the email action.');
+		});
+
+		form?.addEventListener('reset', () => {
+			currentDraft = '';
+			if (output) output.value = 'Complete the form to create a petition draft.';
+			setReady(false);
+			if (emailLink) {
+				emailLink.removeAttribute('href');
+				emailLink.setAttribute('aria-disabled', 'true');
+				emailLink.classList.add('disabled-action');
+			}
+			setMessage('');
+		});
+
+		copyButton?.addEventListener('click', async () => {
+			if (!currentDraft) return;
+			try { await navigator.clipboard.writeText(currentDraft); setMessage('Petition draft copied.'); }
+			catch { setMessage('Clipboard access was unavailable. Select and copy the draft manually.'); }
+		});
+
+		downloadButton?.addEventListener('click', () => {
+			if (!currentDraft) return;
+			const url = URL.createObjectURL(new Blob([currentDraft], { type: 'text/plain;charset=utf-8' }));
+			const link = document.createElement('a');
+			link.href = url;
+			link.download = 'bicycle-safety-petition.txt';
+			link.click();
+			URL.revokeObjectURL(url);
+			setMessage('Petition draft downloaded to this device.');
+		});
+
+		printButton?.addEventListener('click', () => {
+			if (!currentDraft) return;
+			window.print();
+		});
+	</script>
+</SiteLayout>

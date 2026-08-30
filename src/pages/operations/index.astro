@@ -1,0 +1,84 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+	title="Responsible Bait-Bike Operations | Bait Bikes"
+	description="A policy-first field guide for designing lawful, safe, measurable, and accountable bait-bike operations."
+	kicker="Operations"
+>
+	<header class="page-hero shell">
+		<p class="eyebrow">From hotspot analysis to after-action review</p>
+		<h1>Design the operation before deploying the bicycle.</h1>
+		<p class="lede">The tracker is the easy part. Effective operations require a defined problem, legal and policy review, clear roles, reliable evidence, safe response thresholds, and an honest measure of what changed.</p>
+		<nav class="page-nav" aria-label="On this page"><a href="#principles">Principles</a><a href="#lifecycle">Lifecycle</a><a href="#evidence">Evidence</a><a href="#safety">Safety</a><a href="#measurement">Measurement</a></nav>
+	</header>
+
+	<section class="section" id="principles">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Operating principles</p><h2>A bait bicycle is a controlled investigative asset.</h2></div><p>It is not unattended temptation, a shortcut around probable cause, or a replacement for prevention. Every deployment should be governed as deliberately as any other covert or technology-assisted operation.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">01 / LAWFUL</span><h3>Local authority first</h3><p>Have agency counsel and prosecutors review statutes, entrapment doctrine, surveillance rules, retention, disclosure, and charging thresholds in the actual jurisdiction.</p></article>
+				<article class="card"><span class="number">02 / TARGETED</span><h3>Problem-led placement</h3><p>Choose deployment areas from documented theft patterns and defensible criteria—not demographic proxies, informal hunches, or pressure to maximize arrests.</p></article>
+				<article class="card"><span class="number">03 / ACCOUNTABLE</span><h3>Measure the whole effect</h3><p>Track recoveries and case outcomes alongside false alerts, staff hours, community impact, displacement, complaints, and whether reported theft actually changes.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section light" id="lifecycle">
+		<div class="shell split">
+			<div>
+				<p class="eyebrow">The deployment lifecycle</p>
+				<h2>Six gates from need to learning.</h2>
+				<div class="steps">
+					<article class="step"><div><h3>Define</h3><p>Write the specific theft problem, success measures, geographic and time bounds, affected communities, and less-intrusive measures already considered.</p></div></article>
+					<article class="step"><div><h3>Authorize</h3><p>Record asset ownership, legal authority, supervisory approval, prosecutor coordination, placement rules, data handling, and stop criteria.</p></div></article>
+					<article class="step"><div><h3>Prepare</h3><p>Inspect the bicycle, tracker, lock, communications, battery, clock synchronization, serial number, photographs, test route, and evidence storage.</p></div></article>
+					<article class="step"><div><h3>Deploy</h3><p>Use a logged handoff, known personnel, defined observation plan, dispatch code, safe staging, weather limits, and a clear end time.</p></div></article>
+					<article class="step"><div><h3>Respond</h3><p>Verify movement, assess context, coordinate contact, avoid unsafe pursuit, preserve location history, and document decisions independently of the vendor dashboard.</p></div></article>
+					<article class="step"><div><h3>Review</h3><p>Reconcile device and dispatch timelines, record case and recovery outcomes, test for displacement or disparate impact, and publish an appropriate public summary.</p></div></article>
+				</div>
+			</div>
+			<aside class="aside-panel">
+				<p class="eyebrow">A go / no-go check</p>
+				<h3>Do not deploy when...</h3>
+				<ul><li>ownership or authorization is unclear</li><li>the tracker or clocks have not been tested</li><li>response staffing is unavailable</li><li>placement criteria cannot be defended</li><li>retention and disclosure rules are undefined</li><li>weather, events, or traffic make response unsafe</li><li>the operation depends on disabling a moving bicycle</li></ul>
+			</aside>
+		</div>
+	</section>
+
+	<section class="section" id="evidence">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Evidence architecture</p><h2>Preserve meaning, not just coordinates.</h2></div><p>A location trail without clock confidence, asset identity, operator actions, alert configuration, and export integrity is difficult to evaluate. Build a chain of custody for both the bike and the data.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">ASSET</span><h3>Physical record</h3><p>Serial number, component identifiers, owner, acquisition record, pre-deployment condition, lock configuration, photos, tracker installation, and maintenance history.</p></article>
+				<article class="card"><span class="number">EVENT</span><h3>Operational record</h3><p>Approval, personnel, placement and retrieval, observation notes, dispatch calls, device alerts, contact decisions, recovery, arrest, and any use of force.</p></article>
+				<article class="card"><span class="number">DIGITAL</span><h3>Data record</h3><p>Device identity, firmware, configuration, time source, raw and normalized events, export hash, access log, redactions, retention clock, and disclosure history.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="safety">
+		<div class="shell split">
+			<div class="prose">
+				<p class="eyebrow">Safety and civil liberties</p>
+				<h2>Technology should narrow risk—not move it onto the public.</h2>
+				<p>Do not remotely lock, brake, or disable a bicycle while it is moving. Do not publish live owner locations. Do not treat a vendor alert as conclusive proof about the person currently holding the bicycle. Do not retain unrelated bystander or route data simply because storage is cheap.</p>
+				<p>Supervisors should review placement patterns, contacts, non-arrest resolutions, false alerts, demographic impact where lawfully measurable, data access, and complaints. A program designed only around arrest count can reward the wrong behavior.</p>
+			</div>
+			<aside class="aside-panel"><p class="eyebrow">Minimum safeguards</p><ul><li>Role-based access and audit logs</li><li>Short, written retention periods</li><li>Owner and agency consent boundaries</li><li>Independent clock and location verification</li><li>Safe-contact and disengagement rules</li><li>Prosecutor-ready export with provenance</li><li>Public-facing policy and complaint route</li></ul></aside>
+		</div>
+	</section>
+
+	<section class="section light" id="measurement">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Measure outcomes</p><h2>An arrest is an event. Public safety is the outcome.</h2></div><p>Compare against a defined baseline and examine what happens after deployment. The federal bicycle-theft problem guide cautions that evidence for bait-bike initiatives has often been anecdotal; local evaluation matters.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">PREVENTION</span><h3>Theft and reporting</h3><p>Reported thefts, attempted thefts, high-risk locations, serial-number completeness, registration uptake, and changes in locking behavior.</p></article>
+				<article class="card"><span class="number">INVESTIGATION</span><h3>Recovery and networks</h3><p>Recovery condition, return time, linked stolen property, repeat-offender identification, fencing leads, cross-jurisdiction referrals, and case disposition.</p></article>
+				<article class="card"><span class="number">LEGITIMACY</span><h3>Cost and community</h3><p>Staff hours, false activations, disengagements, complaints, demographic impact, geographic displacement, data incidents, and public trust.</p></article>
+			</div>
+			<p class="source-note">Read the <a href="https://portal.cops.usdoj.gov/resourcecenter/content.ashx/cops-p141-pub.pdf">U.S. Department of Justice COPS Office guide to bicycle theft</a> for a problem-oriented framework and its discussion of tracker-equipped bait bicycles.</p>
+		</div>
+	</section>
+</SiteLayout>
