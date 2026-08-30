@@ -24,14 +24,20 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 			<div>
 				<p class="eyebrow">Petition composer</p>
 				<h2>Make a specific, measurable ask.</h2>
-				<p class="form-intro">Fields stay on this device. “Prepare email” opens your own mail application; “Download” creates a local text file. Nothing is submitted to Bait Bikes.</p>
+				<p class="form-intro">Fields stay on this device. Build a PDF and a ready-to-send email package addressed to the official, carbon-copied to you, with the full petition attached. Nothing is submitted to Bait Bikes.</p>
 				<form class="petition-form" data-petition-form>
 					<div class="field-row">
 						<label>Government or agency <input name="jurisdiction" required maxlength="120" placeholder="City of Example or Example Transit Authority" /></label>
 						<label>Official or office <input name="official" required maxlength="120" placeholder="Mayor, city council, transportation committee…" /></label>
 					</div>
-					<label>Official public email <input name="email" type="email" inputmode="email" maxlength="160" placeholder="Use an address published on an official .gov site" aria-describedby="email-help" /></label>
-					<small id="email-help">Verify the recipient on the government’s official website. An email is needed only for the email action.</small>
+					<div class="field-row">
+						<label>Official public email <input name="email" type="email" inputmode="email" required maxlength="160" placeholder="Use an address published on an official .gov site" aria-describedby="email-help" /></label>
+						<label>Your email for the carbon copy <input name="submitterEmail" type="email" inputmode="email" required maxlength="160" autocomplete="email" placeholder="you@example.org" aria-describedby="submitter-email-help" /></label>
+					</div>
+					<div class="field-row field-help-row">
+						<small id="email-help">Verify the recipient on the government’s official website.</small>
+						<small id="submitter-email-help">This address is placed in the draft’s Cc field and is not sent to Bait Bikes.</small>
+					</div>
 					<label>Petition title <input name="title" required maxlength="140" value="Protect bicycle owners with a coordinated theft-prevention and recovery program" /></label>
 					<label>What should this government do? <textarea name="ask" required maxlength="1200" rows="6" placeholder="Example: fund secure parking and registration; publish a bicycle-theft problem analysis; and evaluate a supervised, policy-approved bait-bike pilot with privacy, evidence, and safety controls."></textarea></label>
 					<label>Why does this matter locally? <textarea name="reason" required maxlength="1600" rows="7" placeholder="Describe commuting, access to work and care, recent local data, high-value bicycles and e-bikes, repeat theft, or coordination gaps. Link to sources where possible."></textarea></label>
@@ -53,10 +59,12 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 				<p class="form-message" data-form-message role="status"></p>
 				<div class="actions compact-actions">
 					<button class="button secondary" type="button" data-copy disabled>Copy</button>
-					<button class="button secondary" type="button" data-download disabled>Download .txt</button>
-					<a class="button secondary disabled-action" data-email aria-disabled="true">Prepare email</a>
+					<button class="button secondary" type="button" data-pdf disabled>Download PDF</button>
+					<button class="button secondary" type="button" data-email-package disabled>Email + PDF (.eml)</button>
+					<a class="button secondary disabled-action" data-email aria-disabled="true">Open email draft</a>
 					<button class="button secondary" type="button" data-print disabled>Print</button>
 				</div>
+				<p class="source-note">For the attached-PDF path, download the `.eml` package and open it in a compatible desktop mail app. Review the To and Cc fields and click send yourself. The shorter “Open email draft” path cannot attach files automatically.</p>
 			</aside>
 		</div>
 	</section>
@@ -105,21 +113,53 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 	</section>
 
 	<script>
+		import { buildPetitionEmailPackage, buildPetitionPdf, safePetitionFilename } from '../../lib/petition-delivery';
+
 		const form = document.querySelector<HTMLFormElement>('[data-petition-form]');
 		const output = document.querySelector<HTMLTextAreaElement>('[data-petition-output]');
 		const message = document.querySelector<HTMLElement>('[data-form-message]');
 		const copyButton = document.querySelector<HTMLButtonElement>('[data-copy]');
-		const downloadButton = document.querySelector<HTMLButtonElement>('[data-download]');
+		const pdfButton = document.querySelector<HTMLButtonElement>('[data-pdf]');
+		const emailPackageButton = document.querySelector<HTMLButtonElement>('[data-email-package]');
 		const printButton = document.querySelector<HTMLButtonElement>('[data-print]');
 		const emailLink = document.querySelector<HTMLAnchorElement>('[data-email]');
 
 		let currentDraft = '';
+		let currentTitle = '';
+		let currentRecipient = '';
+		let currentSubmitter = '';
+		let currentFilename = 'bicycle-safety-petition';
+		let cachedPdf: Uint8Array | undefined;
 		const field = (data: FormData, name: string) => String(data.get(name) ?? '').trim();
 		const setMessage = (text: string) => { if (message) message.textContent = text; };
 		const setReady = (ready: boolean) => {
 			if (copyButton) copyButton.disabled = !ready;
-			if (downloadButton) downloadButton.disabled = !ready;
+			if (pdfButton) pdfButton.disabled = !ready;
+			if (emailPackageButton) emailPackageButton.disabled = !ready;
 			if (printButton) printButton.disabled = !ready;
+		};
+		const downloadBlob = (blob: Blob, filename: string) => {
+			const url = URL.createObjectURL(blob);
+			const link = document.createElement('a');
+			link.href = url;
+			link.download = filename;
+			link.click();
+			setTimeout(() => URL.revokeObjectURL(url), 0);
+		};
+		const buildPdf = async () => {
+			if (cachedPdf) return cachedPdf;
+			cachedPdf = await buildPetitionPdf({ draft: currentDraft, title: currentTitle });
+			return cachedPdf;
+		};
+		const buildEmailPackage = async () => {
+			const pdf = await buildPdf();
+			return buildPetitionEmailPackage({
+				draft: currentDraft,
+				title: currentTitle,
+				recipient: currentRecipient,
+				submitter: currentSubmitter,
+				filename: currentFilename,
+			}, pdf);
 		};
 
 		form?.addEventListener('submit', (event) => {
@@ -129,29 +169,35 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 			const jurisdiction = field(data, 'jurisdiction');
 			const official = field(data, 'official');
 			const title = field(data, 'title');
+			const email = field(data, 'email').replace(/[\r\n]+/g, '');
+			const submitterEmail = field(data, 'submitterEmail').replace(/[\r\n]+/g, '');
 			const ask = field(data, 'ask');
 			const reason = field(data, 'reason');
 			const author = field(data, 'author');
 			const location = field(data, 'location');
 			const signature = [author, location].filter(Boolean).join(' — ');
 			currentDraft = `${title}\n\nTo: ${official}, ${jurisdiction}\n\nWe, the undersigned and concerned members of the community, respectfully ask:\n\n${ask}\n\nWhy action is needed:\n\n${reason}\n\nWe ask ${jurisdiction} to use lawful public process, local problem analysis, legal and privacy review, trained supervision, community input, transparent safeguards, and measurable evaluation. This request does not support confrontation, vigilantism, public live-location sharing, or remote disabling of a moving bicycle.\n\n${signature ? `Submitted by: ${signature}\n\n` : ''}Please acknowledge this petition and identify the public process, office, and timeline for considering the request.`;
+			currentTitle = title.replace(/[\r\n]+/g, ' ');
+			currentRecipient = email;
+			currentSubmitter = submitterEmail;
+			currentFilename = safePetitionFilename(`${jurisdiction}-${title}`);
+			cachedPdf = undefined;
 			if (output) output.value = currentDraft;
 			setReady(true);
-			const email = field(data, 'email');
-			if (emailLink && email) {
-				emailLink.href = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(currentDraft)}`;
+			if (emailLink) {
+				emailLink.href = `mailto:${encodeURIComponent(email)}?cc=${encodeURIComponent(submitterEmail)}&subject=${encodeURIComponent(title)}&body=${encodeURIComponent(currentDraft)}`;
 				emailLink.removeAttribute('aria-disabled');
 				emailLink.classList.remove('disabled-action');
-			} else if (emailLink) {
-				emailLink.removeAttribute('href');
-				emailLink.setAttribute('aria-disabled', 'true');
-				emailLink.classList.add('disabled-action');
 			}
-			setMessage(email ? 'Draft ready. Verify the official address before opening your email app.' : 'Draft ready. Add a verified official email to enable the email action.');
+			setMessage('Draft ready. The email draft is addressed to the official and carbon-copied to you. Use the .eml package to include the PDF attachment.');
 		});
 
 		form?.addEventListener('reset', () => {
 			currentDraft = '';
+			currentTitle = '';
+			currentRecipient = '';
+			currentSubmitter = '';
+			cachedPdf = undefined;
 			if (output) output.value = 'Complete the form to create a petition draft.';
 			setReady(false);
 			if (emailLink) {
@@ -168,15 +214,22 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 			catch { setMessage('Clipboard access was unavailable. Select and copy the draft manually.'); }
 		});
 
-		downloadButton?.addEventListener('click', () => {
+		pdfButton?.addEventListener('click', async () => {
 			if (!currentDraft) return;
-			const url = URL.createObjectURL(new Blob([currentDraft], { type: 'text/plain;charset=utf-8' }));
-			const link = document.createElement('a');
-			link.href = url;
-			link.download = 'bicycle-safety-petition.txt';
-			link.click();
-			URL.revokeObjectURL(url);
-			setMessage('Petition draft downloaded to this device.');
+			try {
+				const pdf = await buildPdf();
+				downloadBlob(new Blob([pdf as BlobPart], { type: 'application/pdf' }), `${currentFilename}.pdf`);
+				setMessage('The full petition PDF was downloaded to this device.');
+			} catch { setMessage('The PDF could not be generated in this browser. You can still copy or print the petition.'); }
+		});
+
+		emailPackageButton?.addEventListener('click', async () => {
+			if (!currentDraft) return;
+			try {
+				const email = await buildEmailPackage();
+				downloadBlob(new Blob([email], { type: 'message/rfc822;charset=utf-8' }), `${currentFilename}.eml`);
+				setMessage('Email package downloaded. Open it in a compatible mail app, verify To and Cc, then send. The full petition PDF is attached.');
+			} catch { setMessage('The attached email package could not be generated. Download the PDF and attach it manually to the email draft.'); }
 		});
 
 		printButton?.addEventListener('click', () => {
