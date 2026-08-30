@@ -8,11 +8,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "test": "node --experimental-strip-types --test test/*.test.mjs",
+    "check": "npm run build && npm test",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.2.9"
+    "astro": "^7.2.9",
+    "pdf-lib": "^1.17.1"
   },
   "allowScripts": {
     "esbuild": true

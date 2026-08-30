@@ -12,7 +12,9 @@ npm run build
 
 Major sections are separate Astro routes under `src/pages/`. Shared navigation, metadata, footer content, and social-preview metadata live in `src/layouts/SiteLayout.astro`; the visual system lives in `src/styles/global.css`.
 
-Set `PUBLIC_ORG_PORTAL_URL` and `PUBLIC_OWNER_PORTAL_URL` at build time when the organization and owner applications are ready. Until then, those calls to action resolve to relevant educational sections on this site.
+The petition toolkit is intentionally browser-only. It can create a PDF and a standards-based `.eml` draft addressed to the verified government recipient, carbon-copied to the submitter, with the full petition PDF attached. The site does not transmit or retain petition content or email addresses.
+
+Set `PUBLIC_ORG_PORTAL_URL`, `PUBLIC_OWNER_PORTAL_URL`, and `PUBLIC_USER_APP_URL` at build time when the organization and owner applications are ready. The authentication header defaults to `https://user.baitbikes.org`; the other calls to action resolve to relevant educational sections until their applications are deployed.
 
 ## Content standard
 

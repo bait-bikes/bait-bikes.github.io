@@ -68,9 +68,12 @@ ul, ol { line-height: 1.65; }
 .desktop-nav a { position: relative; color: var(--muted); font-size: .79rem; font-weight: 600; text-decoration: none; }
 .desktop-nav a:hover, .desktop-nav a.active { color: var(--paper); }
 .desktop-nav a.active::after { position: absolute; right: 0; bottom: -.55rem; left: 0; height: 2px; background: var(--amber); content: ''; }
-.header-cta, .button { display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; padding: .72rem 1.05rem; border: 1px solid var(--line); border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s, border-color .2s; }
-.header-cta { border-color: var(--amber); color: var(--amber); font-size: .75rem; }
-.header-cta:hover, .button:hover { transform: translateY(-2px); }
+.header-actions { display: flex; align-items: center; gap: .55rem; }
+.header-login, .header-signup, .button { display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; padding: .72rem 1.05rem; border: 1px solid var(--line); border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s, border-color .2s; }
+.header-login, .header-signup { font-size: .75rem; }
+.header-login { color: var(--paper); }
+.header-signup { border-color: var(--amber); background: var(--amber); color: var(--ink); }
+.header-login:hover, .header-signup:hover, .button:hover { transform: translateY(-2px); }
 .button.primary { border-color: var(--amber); background: var(--amber); color: var(--ink); }
 .button.secondary:hover { border-color: var(--amber-soft); background: rgba(255,203,71,.08); }
 .mobile-menu { display: none; }
@@ -191,11 +194,12 @@ ul, ol { line-height: 1.65; }
 
 @media (max-width: 980px) {
 	.site-header { grid-template-columns: 1fr auto; }
-	.desktop-nav, .header-cta { display: none; }
+	.desktop-nav, .header-actions { display: none; }
 	.mobile-menu { position: relative; display: block; }
 	.mobile-menu summary { padding: .65rem .85rem; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; font-size: .78rem; list-style: none; }
 	.mobile-menu nav { position: absolute; top: 3rem; right: 0; display: grid; min-width: 15rem; padding: .7rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--ink); box-shadow: 0 20px 50px rgba(0,0,0,.35); }
 	.mobile-menu nav a { padding: .7rem; color: var(--muted); text-decoration: none; }
+	.mobile-menu nav .mobile-signup { border-radius: .65rem; background: var(--amber); color: var(--ink); font-weight: 800; }
 	.section-heading, .split { grid-template-columns: 1fr; }
 	.aside-panel { position: static; }
 	.petition-preview { position: static; }

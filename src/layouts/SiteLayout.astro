@@ -11,6 +11,9 @@ const { title, description, kicker = 'Bait Bikes' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const socialImage = new URL('/og.png', Astro.site ?? Astro.url.origin);
 const currentPath = Astro.url.pathname;
+const userAppUrl = import.meta.env.PUBLIC_USER_APP_URL ?? 'https://user.baitbikes.org';
+const loginUrl = new URL('/login', userAppUrl).toString();
+const signupUrl = new URL('/signup', userAppUrl).toString();
 const nav = [
 	{ href: '/why-bikes/', label: 'Why bikes' },
 	{ href: '/operations/', label: 'Operations' },
@@ -58,12 +61,16 @@ const isActive = (href: string) => currentPath.startsWith(href);
 			<nav class="desktop-nav" aria-label="Primary navigation">
 				{nav.map((item) => <a class:list={[{ active: isActive(item.href) }]} href={item.href}>{item.label}</a>)}
 			</nav>
-			<a class="header-cta" href="/partners/#start">Build a partnership</a>
+			<div class="header-actions">
+				<a class="header-login" href={loginUrl}>Log in</a>
+				<a class="header-signup" href={signupUrl}>Sign up</a>
+			</div>
 			<details class="mobile-menu">
 				<summary>Menu</summary>
 				<nav aria-label="Mobile navigation">
 					{nav.map((item) => <a href={item.href}>{item.label}</a>)}
-					<a href="/partners/#start">Build a partnership</a>
+					<a href={loginUrl}>Log in</a>
+					<a class="mobile-signup" href={signupUrl}>Sign up</a>
 				</nav>
 			</details>
 		</header>
@@ -94,6 +101,8 @@ const isActive = (href: string) => currentPath.startsWith(href);
 				</div>
 				<div>
 					<strong>Participate</strong>
+					<a href={loginUrl}>User login</a>
+					<a href={signupUrl}>Create an account</a>
 					<a href="/partners/#agency-onboarding">Agency access</a>
 					<a href="/technology/#owner-app">Owner access</a>
 					<a href="/petitions/">Petition toolkit</a>
