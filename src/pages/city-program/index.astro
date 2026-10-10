@@ -1,0 +1,85 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+	title="City Bicycle-Theft Program Framework | Bait Bikes"
+	description="An adaptable municipal program framework for bicycle-theft prevention, recoveries, agency partnership, limited tracking, safeguarding, and honest evaluation across US cities."
+	kicker="City programs"
+>
+	<header class="page-hero shell">
+		<p class="eyebrow">A repeatable model · Local rules · Local accountability</p>
+		<h1>Build a bike-theft program for your city.</h1>
+		<p class="lede">The 2012 Washington, DC proposal offered an early blueprint for pairing tracked bicycles with agency response and a supporting nonprofit. Cities can adapt the partnership model, but must build their own evidence base, legal authority, safety plan, staffing, and community accountability.</p>
+		<nav class="page-nav" aria-label="On this page"><a href="#model">Program model</a><a href="#localize">Localize it</a><a href="#pilot">Pilot stages</a><a href="#scorecard">Scorecard</a><a href="#governance">Governance</a></nav>
+		<div class="actions"><a class="button secondary" href="/origins/dc-2012/">How the idea began in DC</a><a class="button primary" href="/partners/#agency-onboarding">Plan an agency partnership</a></div>
+	</header>
+
+	<section class="section light" id="model">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Citywide, not sting-only</p><h2>Protect mobility through prevention, recovery, and learning.</h2></div><p>Every city should start with a genuine public problem, not an arrest target or equipment procurement. A bait-bike operation is one optional, supervised instrument within a broader program.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">01 / PREVENT</span><h3>Reduce opportunities</h3><p>Improve racks, lighting and secure parking, strengthen registration, communicate effective locking practices, and include campuses, transit, and shops.</p></article>
+				<article class="card"><span class="number">02 / RECOVER</span><h3>Coordinate verified leads</h3><p>Document serial numbers and ownership, route authorized theft reports, use time-limited access to location only for legitimate recovery, and prepare safe agency response.</p></article>
+				<article class="card"><span class="number">03 / EVALUATE</span><h3>Make benefits testable</h3><p>Track recovery, displacement, reporting changes, response safety, privacy incidents, cost, and community trust. Do not assume an arrest count equals a reduction in theft.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="localize">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Local configuration</p><h2>One framework; different laws, institutions, and constraints.</h2></div><p>Jurisdiction boundaries, public-space rules, theft classifications, surveillance requirements, and available agencies differ across the United States. No DC-specific assumption should be copied into another city unreviewed.</p></div>
+			<table class="comparison">
+				<thead><tr><th>Local decision</th><th>Questions the city must answer</th><th>Accountable owner</th></tr></thead>
+				<tbody>
+					<tr><td>Need and baseline</td><td>Which thefts, losses, locations, time windows, and reporting gaps are documented? How reliable are the denominators?</td><td>City analyst, agency, rider representatives</td></tr>
+					<tr><td>Legal authorization</td><td>Who may place and monitor an agency asset? What rules govern tracking, evidence, stops, searches, and disclosure?</td><td>Agency counsel, prosecutor, supervisor</td></tr>
+					<tr><td>Response capacity</td><td>When may dispatch act? What are the escalation, safety, no-contact, and disengagement rules? Is staffing actually available?</td><td>Dispatch leadership and field supervisor</td></tr>
+					<tr><td>Nonprofit or vendor</td><td>Who maintains equipment, manages access, trains staff, handles incidents, and undergoes audit? What is prohibited?</td><td>Procurement, contract owner, agency</td></tr>
+					<tr><td>Data governance</td><td>Whose locations may be accessed, by whom, for how long, and with what logs, deletion and review process?</td><td>Privacy officer, security and legal teams</td></tr>
+					<tr><td>Oversight</td><td>How are placement patterns, errors, costs, outcomes, equity, and community complaints independently reviewed?</td><td>Public oversight body and program owner</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="section light" id="pilot">
+		<div class="shell split">
+			<div>
+				<p class="eyebrow">A measured pilot—not a deployment promise</p><h2>Progress through explicit approval gates.</h2>
+				<div class="steps">
+					<article class="step"><div><h3>Discover and consult</h3><p>Use verified local incident series, rider surveys, reported/nonreported loss estimates with uncertainty, and input from shops, transit, advocates, and impacted neighborhoods.</p></div></article>
+					<article class="step"><div><h3>Design the service</h3><p>Set outcomes, scope, authorizations, operator responsibilities, independent evaluation, limited data collection, dispute handling, accessibility, and a cost ceiling.</p></div></article>
+					<article class="step"><div><h3>Validate off-street</h3><p>Test device ownership, geofence false positives, clock synchronization, consent, access revocation, secure exports, alert escalation, and safe cancellation without enforcement action.</p></div></article>
+					<article class="step"><div><h3>Run only approved interventions</h3><p>Start with prevention; add controlled agency deployments only after legal and policy approval, staffed response, supervisor signoff, and clear stop rules.</p></div></article>
+					<article class="step"><div><h3>Publish an after-action evaluation</h3><p>Report operational outcomes and limitations in aggregate, compare against baseline, investigate disparate effects and displacement, and decide whether to stop, change, or continue.</p></div></article>
+				</div>
+			</div>
+			<aside class="aside-panel"><p class="eyebrow">Mandatory stop conditions</p><h3>Pause when confidence fails.</h3><ul><li>No documented lawful authority or policy</li><li>Unavailable response or supervision</li><li>Unreliable asset identity, clock, or tracker</li><li>Ambiguous ownership or unauthorized tracking</li><li>Unreviewed privacy or security incident</li><li>Unsafe traffic or public-contact conditions</li><li>Signs of discriminatory placement or targeting</li></ul></aside>
+		</div>
+	</section>
+
+	<section class="section" id="scorecard">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Outcome measures, not invented targets</p><h2>Publish the numerator, denominator, and uncertainty.</h2></div><p>The original 2012 letter proposed fast response and high recovery targets. Those were goals, not measured results. Each participating city should set feasible service objectives from staffing and baseline evidence, with no arrest quotas.</p></div>
+			<div class="card-grid">
+				<article class="card"><span class="number">PUBLIC IMPACT</span><h3>Impact on riders</h3><p>Reported theft rate, estimated reporting coverage with methodology, replacement costs, travel disruption, registrations, bike returns, and community survey outcomes.</p></article>
+				<article class="card"><span class="number">SERVICE RELIABILITY</span><h3>Response and accuracy</h3><p>Eligible alerts, confirmed events, false positives, dispatch response distribution, recovery fraction with denominator, evidence quality, and cancellations.</p></article>
+				<article class="card"><span class="number">PROGRAM HEALTH</span><h3>Cost, safety, and rights</h3><p>Per-case cost, staff hours, grant/contract spending, privacy incidents, data deletion compliance, safety events, complaints, and equity reviews.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section light" id="governance">
+		<div class="shell split">
+			<div class="prose">
+				<p class="eyebrow">Public agency + independent operator</p>
+				<h2>A nonprofit can support operations without exercising police powers.</h2>
+				<p>A city may choose a nonprofit, public agency, vendor, or consortium to manage bicycles, maintenance, education, equipment, and tightly scoped technology. Police powers, dispatch prioritization, legal conclusions, and enforcement decisions remain with authorized public officials under applicable law and oversight.</p>
+				<p>Possible resources include approved agency contracts, grants, philanthropy, donated equipment, and clearly consented private owner services. Budget conservatively: do not rely on criminal fines, recoveries, citations, or prosecution volume to finance the program.</p>
+				<p>Do not expose live GPS maps to the public, use location data to surveil unrelated people, or remotely disable a moving bicycle. Retain and disclose only what the jurisdiction legally permits and what the service actually needs.</p>
+			</div>
+			<aside class="aside-panel"><p class="eyebrow">Continue exploring</p><ul><li><a href="/origins/dc-2012/">2012 Washington, DC historical proposal</a></li><li><a href="/operations/">Responsible operation design</a></li><li><a href="/technology/">Tracking and owner consent</a></li><li><a href="/partners/">Agency and city partnerships</a></li><li><a href="/resources/">Primary sources and further reading</a></li></ul></aside>
+		</div>
+	</section>
+</SiteLayout>
