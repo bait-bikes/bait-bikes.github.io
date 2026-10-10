@@ -6,6 +6,8 @@ const routes = [
 	'index.html',
 	'contact/index.html',
 	'operations/index.html',
+	'origins/dc-2012/index.html',
+	'city-program/index.html',
 	'partners/index.html',
 	'petitions/index.html',
 	'resources/index.html',
