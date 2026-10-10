@@ -22,6 +22,15 @@ apex and supported service subdomains redirect with HTTP 308 to the equivalent
 and social metadata for `https://baitbikes.org`, regardless of its deployment
 origin.
 
+## Historical DC proposal and municipal framework
+
+- [2012 Washington, DC proposal](docs/history/2012-dc-anti-bike-theft-proposal.md) — historical, first-person primary source by Alexander D. Mills. Its theft counts, funding statements, response goals, and legal hypotheses are not independently verified; the editorial annotations prevent them from becoming current claims.
+- [DC origins](src/pages/origins/dc-2012.astro) — public history of the proposal and its limitations.
+- [City program](src/pages/city-program/index.astro) — reusable US municipal program model with prevention, owner consent, legal review, responsible agency/nonprofit roles, safe response, measurement, and community oversight.
+- [Municipal infrastructure boundaries](https://github.com/bait-bikes/bait-bikes-infra/blob/main/docs/municipal-program-boundaries.md) — proposed cross-jurisdiction data separation and admission checks; not implemented permissions.
+
+The 2012 concept is a proposal, not evidence of MPD program adoption or deployed technology. No city's current crime trends or statutory powers may be inferred from that letter.
+
 ## Content standard
 
 This project distinguishes sourced cases from general claims, uses precise language around allegations and varying theft thresholds, and treats lawful authority, safe response, privacy, data minimization, and community accountability as core operational requirements.
