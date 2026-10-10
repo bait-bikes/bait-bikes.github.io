@@ -40,7 +40,7 @@ test('every route declares baitbikes.org as its canonical public origin', async 
 test('historical DC material is qualified and not presented as current data or automatic authority', async () => {
 	const html = await readFile(new URL('../dist/origins/dc-2012/index.html', import.meta.url), 'utf8');
 	assert.match(html, /July 19, 2012/);
-	assert.match(html, /not verified counts or current trends/);
+	assert.match(html, /not present them as verified counts or current trends/);
 	assert.match(html, /not a warrant/);
 	assert.match(html, /\/city-program\//);
 });
